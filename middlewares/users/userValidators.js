@@ -58,14 +58,17 @@ const addUserValidationHandler = function (req, res, next) {
     next();
   } else {
     // remove uploaded files
+ 
     if (req.files.length > 0) {
       const { filename } = req.files[0];
+      // console.log(__dirname);
       unlink(
-        path.join(__dirname, `/../public/uploads/avatars/${filename}`),
+        path.join(__dirname, `../../public/uploads/avatars/${filename}`),
         (err) => {
           if (err) console.log(err);
         }
       );
+      console.log(`Uploaded avatar was deleted:${filename}`);
     }
 
     // response the errors
