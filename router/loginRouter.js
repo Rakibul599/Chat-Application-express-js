@@ -9,6 +9,6 @@ const { doLoginValidators, doLoginValidationHandler } = require('../middlewares/
 const router=express.Router();
 
 router.get('/',decorateHtmlResponse('Login'),getLogin);
-router.post('/',doLoginValidators,doLoginValidationHandler,login)
+router.post('/',decorateHtmlResponse('Login'),doLoginValidators,doLoginValidationHandler,login)
 
 module.exports=router;
